@@ -1,8 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter } from "lucide-react";
-import logo from "../assets/logo 1.png"; // استبدل بمسار شعارك الحقيقي
-
-// يجب استبدال هذا المسار بمسار رسم المقلاة الشفاف
+import logo from "../assets/logo 1.png";
 import panBackground from "../assets/Group.png";
 
 const Footer = () => {
@@ -10,7 +9,7 @@ const Footer = () => {
     { name: "Menu", href: "/menu" },
     { name: "About us", href: "/about" },
     { name: "Contact us", href: "/contact" },
-    { name: "login", href: "/login" },
+    { name: "Login", href: "/login" },
   ];
 
   const dishesLinks = [
@@ -28,7 +27,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-white relative pt-16 text-gray-700 overflow-hidden">
-      {/* الخلفية الزخرفية للمقلاة */}
       <div
         className="absolute inset-0 opacity-10 bg-no-repeat bg-center bg-contain"
         style={{
@@ -39,28 +37,19 @@ const Footer = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* الجزء العلوي: الأقسام الرئيسية */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 border-b pb-12 border-gray-200">
-          {/* العمود 1: الشعار والوصف وساعات العمل */}
           <div className="col-span-2 lg:col-span-2 space-y-6">
-            <img
-              src={logo}
-              alt="Restaurant Logo"
-              className="h-8" // يجب تعديل الحجم حسب اللوجو
-            />
-<p className="text-sm max-w-sm leading-relaxed">
-  Discover the perfect blend of taste, quality, and comfort at our restaurant.
-  We’re passionate about serving you fresh, flavorful dishes made with love.
-  <a href="/about" className="text-blue-600 hover:text-blue-800 ml-1">
-    Learn more
-  </a>
-</p>
-
+            <img src={logo} alt="Restaurant Logo" className="h-8" />
+            <p className="text-sm max-w-sm leading-relaxed">
+              Discover the perfect blend of taste, quality, and comfort at our restaurant.
+              We’re passionate about serving you fresh, flavorful dishes made with love.
+              <Link to="/about" className="text-blue-600 hover:text-blue-800 ml-1">
+                Learn more
+              </Link>
+            </p>
 
             <div className="space-y-3 pt-4">
-              <h4 className="font-bold text-sm text-gray-900 uppercase">
-                Opening Hours
-              </h4>
+              <h4 className="font-bold text-sm text-gray-900 uppercase">Opening Hours</h4>
               <div className="grid grid-cols-3 gap-4 text-sm">
                 <div>
                   <p className="font-semibold text-gray-800">Monday - Friday</p>
@@ -78,49 +67,34 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* العمود 2: Navigation */}
           <div className="hidden md:block space-y-4">
-            <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">
-              Navigation
-            </h4>
+            <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">Navigation</h4>
             <ul className="space-y-3 text-sm">
               {navigationLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="hover:text-orange-600 transition-colors"
-                  >
+                  <Link to={link.href} className="hover:text-orange-600 transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* العمود 3: Dishes */}
           <div className="space-y-4">
-            <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">
-              Dishes
-            </h4>
+            <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">Dishes</h4>
             <ul className="space-y-3 text-sm">
               {dishesLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="hover:text-orange-600 transition-colors"
-                  >
+                  <Link to={link.href} className="hover:text-orange-600 transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* العمود 4: Follow Us */}
           <div className="space-y-4">
-            <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">
-              Follow Us
-            </h4>
+            <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">Follow Us</h4>
             <div className="flex space-x-3">
               {socialIcons.map((item, index) => (
                 <a
@@ -135,7 +109,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* شريط حقوق النشر (Copyright Bar) */}
         <div className="flex flex-col sm:flex-row justify-between items-center py-5 text-xs text-gray-500 space-y-3 sm:space-y-0">
           <p>
             © 2025 Restaurants. All Right Reserved. Designed by{" "}
